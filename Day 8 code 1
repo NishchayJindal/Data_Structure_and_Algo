@@ -1,0 +1,18 @@
+//Q342.Power of 4
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+    if(n==0)
+    {
+        return false;
+    } 
+    int p=n;
+    while(p!=1)
+    {
+        if(p%4 !=0)
+        return false;
+        p=p/4; 
+    }
+    return true;   
+    }
+};
