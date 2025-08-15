@@ -1,0 +1,28 @@
+//Q50. Pow(x,n)
+improtant 
+class Solution {
+public:
+    double myPow(double x, int n) {
+      
+        if (n == 0)
+            return 1;
+
+        // Handle negative exponents safely
+        if (n < 0) {
+            x = 1 / x;
+            // To handle INT_MIN, increment n to avoid overflow
+            if (n == INT_MIN) {
+                n++;
+                return x * myPow(x, -n);
+            }
+            n = -n;
+        }
+
+        // Use divide-and-conquer
+        double half = myPow(x, n / 2);
+        if (n % 2 == 0)
+            return half * half;
+        else
+            return half * half * x;
+    }
+};
