@@ -1,0 +1,19 @@
+//Q231.Power of 2
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+    if(n==0)
+    {
+        return false;
+    } 
+    int p=n;
+    while(p!=1)
+    {
+        if(p%2 !=0)
+        return false;
+        p=p/2; 
+    }
+    return true;   
+         
+    }
+};
