@@ -1,0 +1,22 @@
+//Problem 2749: “Minimum Operations to Make the Integer Zero”
+class Solution {
+public:
+    int countBits(long long n) {
+        int count = 0;
+        while (n > 0) {
+            count += (n & 1);
+            n >>= 1;
+        }
+        return count;
+    }
+    int makeTheIntegerZero(int num1, int num2) {
+    for (long long ops = 0; ops <= 60; ++ops) {
+            long long target = num1 - ops * 1LL * num2;
+
+            if (target >= ops && countBits(target) <= ops) {
+                return (int)ops;
+            }
+        }
+        return -1;    
+    }
+};
