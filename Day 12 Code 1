@@ -1,0 +1,31 @@
+// Q8. String to Integer (atoi)
+
+class Solution {
+public:
+    int myAtoi(string s) {
+    int i=0;
+    int n=s.length();
+    int nums=0;
+    int sign=1;
+    //intitally it is positive
+    while(s[i]==' ')
+    {
+        i++;
+    }
+    if(i<n &&(s[i]=='-' || s[i]=='+'))
+    {
+        sign = s[i] =='+' ? 1:-1;
+        i++;
+    }
+    while(i<n && isdigit(s[i]))
+    {
+        if(nums>INT_MAX/10 ||(nums==INT_MAX/10 && s[i]>'7'))
+        {
+            return sign==-1 ? INT_MIN : INT_MAX;
+        }
+        nums=nums*10 +(s[i]-'0');
+        i++;
+    } 
+    return nums*sign;   
+    }
+};
